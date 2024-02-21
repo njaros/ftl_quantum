@@ -1,0 +1,17 @@
+---
+# Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
+
+version: "3.3"
+
+services:
+  notebook:
+    build: .
+    image: my-notebook
+    container_name: notebook
+    volumes:
+      - "./:/home/jovyan/work"
+    ports:
+      - "8888:8888"
+    env_file:
+      - .env

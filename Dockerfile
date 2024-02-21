@@ -1,11 +1,20 @@
-# start by pulling the python image
-FROM python:latest
- 
-# switch working directory
-WORKDIR /app
+# Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
 
-COPY requirements.txt /app/requirements.txt
+# Pick your favorite docker-stacks image
+FROM quay.io/jupyter/minimal-notebook
+
+USER root
+
+# Add permanent apt-get installs and other root commands here
+# e.g., RUN apt-get install --yes --no-install-recommends npm nodejs
+
+USER ${NB_UID}
+
+# Switch back to jovyan to avoid accidental container runs as root
+# Add permanent mamba/pip/conda installs, data files, other user libs here
+# e.g., RUN pip install --no-cache-dir flake8
+
+COPY requirements.txt requirements.txt
 # install the dependencies and packages in the requirements file
 RUN pip install -r requirements.txt
-
-ENTRYPOINT [ "bash" ]
