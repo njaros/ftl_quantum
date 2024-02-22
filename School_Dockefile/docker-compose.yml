@@ -1,0 +1,11 @@
+version: "3.3"
+
+services:
+  notebook:
+    build: ./
+    image: my-notebook-school
+    container_name: notebook-school
+    ports:
+      - "8888:8888"
+    env_file:
+      - .env

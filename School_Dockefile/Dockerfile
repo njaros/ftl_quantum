@@ -14,9 +14,9 @@ USER ${NB_UID}
 # Switch back to jovyan to avoid accidental container runs as root
 # Add permanent mamba/pip/conda installs, data files, other user libs here
 # e.g., RUN pip install --no-cache-dir flake8
+WORKDIR /home/jovyan/work
 
-COPY requirements.txt requirements.txt
+COPY ./ ./
+
 # install the dependencies and packages in the requirements file
 RUN pip install -r requirements.txt
-
-WORKDIR /home/jovyan/work
