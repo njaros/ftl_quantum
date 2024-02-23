@@ -14,4 +14,5 @@
 ### TODOS
 
 - do all the curses and exams before to code at https://learning.quantum.ibm.com/ (1 or 2 weeks)
+- Set up a docker able to works well on the 42 school network (will be usefull for all future 42 projects)
 - do the 42 subject exercises (1 day)
